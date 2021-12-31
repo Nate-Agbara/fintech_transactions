@@ -47,43 +47,10 @@ public class TransactionController {
     })
     @PostMapping("/deposit")
     public ResponseEntity<TransactionResponse> postDeposit(@RequestBody TransactionDto transactionDto){
-        Optional<String> depositorDetails = transactionService.getAccount(transactionDto.getAccountNo());
-        TransactionResponse transactionResponse = new TransactionResponse();
-        if(!depositorDetails.isEmpty()){
-            String[] depositorDetailsArray = depositorDetails.get().split(",");
-            if(transactionDto.getAmount().compareTo(BigDecimal.ZERO) > 0) {
-                Transaction transaction = new Transaction();
-                transaction.setCustomerId(Long.parseLong(depositorDetailsArray[0]));
-                transaction.setAccountNo(Long.parseLong(depositorDetailsArray[1]));
-                transaction.setTransactionRemark(transactionDto.getTransactionRemark());
-                long ref = new Random().nextLong(1000000);
-                transaction.setTransactionRef(ref);
-                transaction.setTransactionType(transactionDto.getTransactionType());
-                transaction.setAmount(transactionDto.getAmount());
-                BigDecimal newBalance = BigDecimal.valueOf(Double.parseDouble(depositorDetailsArray[2])).add(transactionDto.getAmount());
-                transaction.setBalance(newBalance);
-                transaction.setSentEmailNotification(false);
-                transaction.setSentSmsNotification(false);
-                transaction.setTransactionStatus(TransactionStatus.SUCCESS);
-                transactionService.deposit(transaction);
-                transactionService.updateBalance(newBalance, Long.parseLong(depositorDetailsArray[1]),
-                        Long.parseLong(depositorDetailsArray[0]));
-                transactionResponse = new TransactionResponse(ref,transactionDto.getAmount(),"SUCCESS",
-                transactionDto.getTransactionRemark(), transactionDto.getTransactionType(),
-                        TransactionStatus.SUCCESS);
-            }else {
-                log.info("Amount is invalid");
-                transactionResponse.setMessage("invalid amount");
-                transactionResponse.setTransactionStatus(TransactionStatus.FAILED);
-                return new ResponseEntity<>(transactionResponse, HttpStatus.BAD_REQUEST);
-            }
-        }else {
-            log.info("invalid account");
-            transactionResponse.setMessage("invalid account");
-            transactionResponse.setTransactionStatus(TransactionStatus.FAILED);
+        TransactionResponse transactionResponse =
+                transactionService.deposit(new Transaction(), transactionDto);
+        if(transactionResponse.getTransactionStatus().equals(TransactionStatus.FAILED))
             return new ResponseEntity<>(transactionResponse, HttpStatus.BAD_REQUEST);
-        }
-
 
         return new ResponseEntity<>(transactionResponse, HttpStatus.CREATED);
     }

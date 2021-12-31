@@ -1,5 +1,7 @@
 package com.fintech.transaction.service;
 
+import com.fintech.transaction.dto.TransactionDto;
+import com.fintech.transaction.dto.TransactionResponse;
 import com.fintech.transaction.model.Account;
 import com.fintech.transaction.model.Transaction;
 
@@ -11,7 +13,7 @@ import java.util.Optional;
  */
 public interface TransactionService {
 
-    void deposit(Transaction transaction);
+    TransactionResponse deposit(Transaction transaction, TransactionDto transactionDto);
 
     Optional<String> getAccount(long accountNo);
 

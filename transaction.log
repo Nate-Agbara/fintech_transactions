@@ -1,0 +1,30 @@
+2021-12-31 11:17:09.275  INFO 26168 --- [restartedMain] c.f.transaction.TransactionApplication   : Starting TransactionApplication using Java 17.0.1 on nagbara with PID 26168 (C:\Users\agbar\Documents\Dev\transaction\build\classes\java\main started by agbar in C:\Users\agbar\Documents\Dev\transaction)
+2021-12-31 11:17:09.275  INFO 26168 --- [restartedMain] c.f.transaction.TransactionApplication   : No active profile set, falling back to default profiles: default
+2021-12-31 11:17:09.326  INFO 26168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-31 11:17:09.326  INFO 26168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-31 11:17:10.020  INFO 26168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-31 11:17:10.068  INFO 26168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interfaces.
+2021-12-31 11:17:10.604  INFO 26168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2021-12-31 11:17:10.620  INFO 26168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-31 11:17:10.620  INFO 26168 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-31 11:17:10.684  INFO 26168 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-31 11:17:10.684  INFO 26168 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1358 ms
+2021-12-31 11:17:10.812  INFO 26168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-31 11:17:14.208  INFO 26168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-31 11:17:14.239  INFO 26168 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-31 11:17:14.271  INFO 26168 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2021-12-31 11:17:14.414  INFO 26168 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-31 11:17:14.508  INFO 26168 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-12-31 11:17:14.918  INFO 26168 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-31 11:17:14.918  INFO 26168 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-31 11:17:15.274  WARN 26168 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-31 11:17:15.410  INFO 26168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-31 11:17:15.536  INFO 26168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2021-12-31 11:17:15.694  INFO 26168 --- [restartedMain] c.f.transaction.TransactionApplication   : Started TransactionApplication in 6.744 seconds (JVM running for 7.123)
+2021-12-31 11:17:35.681  INFO 26168 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-31 11:17:35.681  INFO 26168 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-31 11:17:35.682  INFO 26168 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-31 11:19:37.495  INFO 26168 --- [http-nio-8090-exec-6] c.f.t.service.TransactionServiceImpl     : validating account: 1000000005
+2021-12-31 11:19:51.725  INFO 26168 --- [http-nio-8090-exec-7] c.f.t.service.TransactionServiceImpl     : validating account: 1000000005
+2021-12-31 11:20:01.750  WARN 26168 --- [http-nio-8090-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2c1c4a90 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-31 11:20:04.311  INFO 26168 --- [http-nio-8090-exec-7] c.f.t.service.TransactionServiceImpl     : Amount is invalid
