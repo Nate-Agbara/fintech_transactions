@@ -49,10 +49,9 @@ public class TransactionController {
     public ResponseEntity<TransactionResponse> postDeposit(@RequestBody TransactionDto transactionDto){
         TransactionResponse transactionResponse =
                 transactionService.deposit(new Transaction(), transactionDto);
-        if(transactionResponse.getTransactionStatus().equals(TransactionStatus.FAILED))
-            return new ResponseEntity<>(transactionResponse, HttpStatus.BAD_REQUEST);
-
-        return new ResponseEntity<>(transactionResponse, HttpStatus.CREATED);
+        return !transactionResponse.getTransactionStatus().equals(TransactionStatus.FAILED) ?
+                new ResponseEntity<>(transactionResponse, HttpStatus.CREATED) :
+                new ResponseEntity<>(transactionResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ApiOperation(value = "getTransaction/ref", response = Transaction.class)
